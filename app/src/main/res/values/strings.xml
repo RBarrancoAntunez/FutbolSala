@@ -4,4 +4,5 @@
     <string name="btnMatchesText">Partidos</string>
     <string name="btnAddMatchText">Añadir Partido</string>
     <string name="btnReportsText">Listados</string>
+    <string name="btnAddPlayerText">Añadir jugador</string>
 </resources>

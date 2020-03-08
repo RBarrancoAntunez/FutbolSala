@@ -5,4 +5,5 @@
     <string name="btnMatchesText">Matches</string>
     <string name="btnAddMatchText">Add Match</string>
     <string name="btnReportsText">Reports</string>
+    <string name="btnAddPlayerText">Add Player</string>
 </resources>
