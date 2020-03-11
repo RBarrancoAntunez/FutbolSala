@@ -1,56 +1,34 @@
 package net.yureisd.futbolsala;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
 
-import java.util.List;
+public class PlayerAdapter extends ArrayAdapter<Player> {
 
-public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder> {
+    Activity context;
 
-    private Context context;
-    private List<Player> players;
-
-    public PlayerAdapter(Context context, List<Player> players) {
+    public PlayerAdapter(ArrayList<Player> players, Activity context) {
+        super(context, R.layout.player_card, players);
         this.context = context;
-        this.players = players;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.player_card,parent,false);
-
-        return new ViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.txtNombre.setText(players.get(position).getDorsal() + " - " + players.get(position).getNombre());
-    }
-
-    @Override
-    public int getItemCount() {
-        return players.size();
-    }
-
-    public  class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
-
-        public TextView txtNombre;
-
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            txtNombre = itemView.findViewById(R.id.txtPlayerNumberName);
+    public View getView(int objeto, View view, ViewGroup viewGroup){
+        if (view==null){
+            LayoutInflater inflater = context.getLayoutInflater();
+            view = inflater.inflate(R.layout.player_card, null);
         }
 
-        @Override
-        public void onClick(View v) {
-            int position = getAdapterPosition();
-        }
+        Player player = getItem(objeto);
+        TextView tv = view.findViewById((R.id.txtPlayerNumberName));
+        tv.setText(player.getDorsal() + " - " + player.getNombre());
+        return view;
     }
+
 }

@@ -11,12 +11,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPlayersList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </androidx.recyclerview.widget.RecyclerView>
+        <ListView
+            android:id="@+id/lstPlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ListView>
 
         <Button
             android:id="@+id/btnAddPlayer"
